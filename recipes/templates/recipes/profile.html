@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Мой профиль{% endblock %}
+
+{% block content %}
+    <h1>Мой профиль</h1>
+    <p><strong>Имя:</strong> {{ user.first_name }}</p>
+    <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Редактировать профиль</a>
+    <!-- Форма для выхода из системы -->
+    <br><br>
+        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" >Выйти</button>
+        </form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h1>Рецепты</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <a href="{% url 'recipe_detail' recipe.id %}">
+                    {{ recipe.title }} ({{ recipe.category.name }}) - Автор: {{ recipe.author.username }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
